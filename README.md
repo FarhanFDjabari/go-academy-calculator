@@ -2,7 +2,7 @@
 
 ## Problem Description
 
-A calculator program that can add and subtract 2 number.
+A calculator program that can add, subtract, multiply, and divide 2 number.
 
 ## Dev environment setup
 
