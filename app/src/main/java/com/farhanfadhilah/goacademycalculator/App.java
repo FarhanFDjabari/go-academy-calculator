@@ -14,6 +14,11 @@ public class App {
         return String.valueOf(displayedNumber);
     }
 
+    public String cancel() {
+        displayedNumber = 0.0;
+        return toString();
+    }
+
     public void main(String[] args) {
         System.out.println(toString());
         System.out.println();
