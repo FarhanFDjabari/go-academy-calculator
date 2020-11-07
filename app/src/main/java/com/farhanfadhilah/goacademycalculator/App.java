@@ -75,8 +75,14 @@ public class App {
         return command;
     }
 
-    public void main(String[] args) {
-        System.out.println(toString());
-        System.out.println();
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        App calculator = new App();
+        while (!calculator.isExit) {
+            System.out.println(calculator.toString());
+            System.out.println("Enter a command : ");
+            String userInput = input.nextLine();
+            calculator.calculate(userInput);
+        }
     }
 }
