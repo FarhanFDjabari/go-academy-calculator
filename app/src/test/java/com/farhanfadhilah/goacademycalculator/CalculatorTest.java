@@ -17,4 +17,12 @@ public class CalculatorTest {
         assertEquals("0.0", classUnderTest.cancel());
     }
 
+    @Test
+    public void givenCalculatorAppAddShouldReturnNumber() {
+        App classUnderTest = new App();
+        double firstNumber = classUnderTest.displayedNumber;
+        int secondNumber = 1;
+        assertEquals(String.valueOf(firstNumber + secondNumber), classUnderTest.add(firstNumber, secondNumber));
+    }
+
 }

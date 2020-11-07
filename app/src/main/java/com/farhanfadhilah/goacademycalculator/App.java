@@ -19,6 +19,11 @@ public class App {
         return toString();
     }
 
+    public String add(double firstNumber, int secondNumber) {
+        displayedNumber = firstNumber + secondNumber;
+        return toString();
+    }
+
     public void main(String[] args) {
         System.out.println(toString());
         System.out.println();
