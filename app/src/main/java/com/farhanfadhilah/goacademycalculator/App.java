@@ -4,6 +4,7 @@
 package com.farhanfadhilah.goacademycalculator;
 
 import java.text.DecimalFormat;
+import java.util.Scanner;
 
 public class App {
     boolean isExit = false;
@@ -43,6 +44,35 @@ public class App {
     public String divide(double firstNumber, int secondNumber) {
         displayedNumber = firstNumber / secondNumber;
         return toString();
+    }
+
+    public String calculate(String command) {
+        String[] splitCommand = command.split(" ");
+        String commandWord = splitCommand[0];
+
+        if (splitCommand.length == 2) {
+            int commandNumber = Integer.parseInt(splitCommand[1]);
+
+            switch (commandWord) {
+                case "add":
+                    add(displayedNumber, commandNumber);
+                    break;
+                case "subtract":
+                    subtract(displayedNumber, commandNumber);
+                    break;
+                case "multiply":
+                    multiply(displayedNumber, commandNumber);
+                    break;
+                case "cancel":
+                    cancel();
+                    break;
+                case "exit":
+                    isExit();
+                    break;
+                default:
+            }
+        }
+        return command;
     }
 
     public void main(String[] args) {
