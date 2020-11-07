@@ -21,14 +21,11 @@ public class App {
             String[] commands = userInput.split(" ");
             String commandWord = commands[0];
             int commandNumber = 0;
-
             if (commands.length == 2) {
                 commandNumber = Integer.parseInt(commands[1]);
             }
-
             calculator.calculate(commandWord, commandNumber);
         }
-
         System.out.println();
     }
 
@@ -68,7 +65,6 @@ public class App {
     }
 
     public String calculate(String commandWord, int commandNumber) {
-
         switch (commandWord) {
             case "add":
                 add(displayedNumber, commandNumber);
@@ -90,7 +86,6 @@ public class App {
                 break;
             default:
         }
-
         return commandWord;
     }
 }
