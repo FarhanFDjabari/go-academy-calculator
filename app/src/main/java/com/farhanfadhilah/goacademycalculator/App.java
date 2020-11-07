@@ -11,6 +11,27 @@ public class App {
     double displayedNumber = 0.0;
     DecimalFormat numberFormat = new DecimalFormat("#0.0");
 
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        App calculator = new App();
+        while (!calculator.isExit) {
+            System.out.println(calculator.toString());
+            System.out.println("Enter a command : ");
+            String userInput = input.nextLine();
+            String[] commands = userInput.split(" ");
+            String commandWord = commands[0];
+            int commandNumber = 0;
+
+            if (commands.length == 2) {
+                commandNumber = Integer.parseInt(commands[1]);
+            }
+
+            calculator.calculate(commandWord, commandNumber);
+        }
+
+        System.out.println();
+    }
+
     @Override
     public String toString() {
         return String.valueOf(numberFormat.format(displayedNumber));
@@ -46,43 +67,30 @@ public class App {
         return toString();
     }
 
-    public String calculate(String command) {
-        String[] splitCommand = command.split(" ");
-        String commandWord = splitCommand[0];
+    public String calculate(String commandWord, int commandNumber) {
 
-        if (splitCommand.length == 2) {
-            int commandNumber = Integer.parseInt(splitCommand[1]);
-
-            switch (commandWord) {
-                case "add":
-                    add(displayedNumber, commandNumber);
-                    break;
-                case "subtract":
-                    subtract(displayedNumber, commandNumber);
-                    break;
-                case "multiply":
-                    multiply(displayedNumber, commandNumber);
-                    break;
-                case "cancel":
-                    cancel();
-                    break;
-                case "exit":
-                    isExit();
-                    break;
-                default:
-            }
+        switch (commandWord) {
+            case "add":
+                add(displayedNumber, commandNumber);
+                break;
+            case "subtract":
+                subtract(displayedNumber, commandNumber);
+                break;
+            case "multiply":
+                multiply(displayedNumber, commandNumber);
+                break;
+            case "divide":
+                divide(displayedNumber, commandNumber);
+                break;
+            case "cancel":
+                cancel();
+                break;
+            case "exit":
+                isExit();
+                break;
+            default:
         }
-        return command;
-    }
 
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        App calculator = new App();
-        while (!calculator.isExit) {
-            System.out.println(calculator.toString());
-            System.out.println("Enter a command : ");
-            String userInput = input.nextLine();
-            calculator.calculate(userInput);
-        }
+        return commandWord;
     }
 }
