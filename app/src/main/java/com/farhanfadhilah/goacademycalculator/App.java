@@ -4,11 +4,18 @@
 package com.farhanfadhilah.goacademycalculator;
 
 public class App {
+    double displayedNumber = 0.0;
     public String getGreeting() {
         return "Hello World!";
     }
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+    @Override
+    public String toString() {
+        return String.valueOf(displayedNumber);
+    }
+
+    public void main(String[] args) {
+        System.out.println(toString());
+        System.out.println();
     }
 }
