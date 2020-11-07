@@ -55,4 +55,11 @@ public class CalculatorTest {
         assertTrue(classUnderTest.isExit());
     }
 
+    @Test
+    public void givenCalculatorAppHasInput() {
+        App classUnderTest = new App();
+        String command = "add 1";
+        assertNotNull("add 1", classUnderTest.calculate(command));
+    }
+
 }
