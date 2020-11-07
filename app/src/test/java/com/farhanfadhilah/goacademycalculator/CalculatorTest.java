@@ -62,7 +62,7 @@ public class CalculatorTest {
         App classUnderTest = new App();
         String command = "add";
         int commandNumber = 1;
-        assertNotNull("add", classUnderTest.calculate(command, commandNumber));
+        assertEquals("add", classUnderTest.calculate(command, commandNumber));
     }
 
 }
