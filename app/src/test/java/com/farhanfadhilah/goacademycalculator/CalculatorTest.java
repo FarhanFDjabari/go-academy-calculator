@@ -58,11 +58,11 @@ public class CalculatorTest {
     }
 
     @Test
-    public void givenCalculatorAppHasInput() {
+    public void givenCalculatorAppCalculateShouldReturnCommand() {
         App classUnderTest = new App();
         String command = "add";
         int commandNumber = 1;
-        assertNotNull("add 1", classUnderTest.calculate(command, commandNumber));
+        assertNotNull("add", classUnderTest.calculate(command, commandNumber));
     }
 
 }
