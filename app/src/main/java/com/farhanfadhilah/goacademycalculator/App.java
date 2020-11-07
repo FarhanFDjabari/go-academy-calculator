@@ -3,15 +3,21 @@
  */
 package com.farhanfadhilah.goacademycalculator;
 
+import java.text.DecimalFormat;
+
 public class App {
+    boolean isExit = false;
     double displayedNumber = 0.0;
-    public String getGreeting() {
-        return "Hello World!";
-    }
+    DecimalFormat numberFormat = new DecimalFormat("#0.0");
 
     @Override
     public String toString() {
-        return String.valueOf(displayedNumber);
+        return String.valueOf(numberFormat.format(displayedNumber));
+    }
+
+    public boolean isExit() {
+        isExit = !isExit;
+        return isExit;
     }
 
     public String cancel() {
@@ -31,6 +37,11 @@ public class App {
 
     public String multiply(double firstNumber, int secondNumber) {
         displayedNumber = firstNumber * secondNumber;
+        return toString();
+    }
+
+    public String divide(double firstNumber, int secondNumber) {
+        displayedNumber = firstNumber / secondNumber;
         return toString();
     }
 

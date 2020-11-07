@@ -41,4 +41,18 @@ public class CalculatorTest {
         assertEquals(String.valueOf(firstNumber * secondNumber), classUnderTest.multiply(firstNumber, secondNumber));
     }
 
+    @Test
+    public void givenCalculatorAppDivideShouldReturnNumber() {
+        App classUnderTest = new App();
+        double firstNumber = classUnderTest.displayedNumber;
+        int secondNumber = 1;
+        assertEquals(String.valueOf(firstNumber / secondNumber), classUnderTest.divide(firstNumber, secondNumber));
+    }
+
+    @Test
+    public void givenCalculatorAppIsExitShouldReturnTrue() {
+        App classUnderTest = new App();
+        assertTrue(classUnderTest.isExit());
+    }
+
 }
