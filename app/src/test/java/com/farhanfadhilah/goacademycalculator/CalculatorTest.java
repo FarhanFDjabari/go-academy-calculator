@@ -58,8 +58,9 @@ public class CalculatorTest {
     @Test
     public void givenCalculatorAppHasInput() {
         App classUnderTest = new App();
-        String command = "add 1";
-        assertNotNull("add 1", classUnderTest.calculate(command));
+        String command = "add";
+        int commandNumber = 1;
+        assertNotNull("add 1", classUnderTest.calculate(command, commandNumber));
     }
 
 }
