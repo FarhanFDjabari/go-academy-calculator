@@ -14,6 +14,7 @@ public class CalculatorTest {
     @Test
     public void givenCalculatorAppCancelShouldResetToZero() {
         App classUnderTest = new App();
+        classUnderTest.displayedNumber = 10.0;
         assertEquals("0.0", classUnderTest.cancel());
     }
 
@@ -52,6 +53,7 @@ public class CalculatorTest {
     @Test
     public void givenCalculatorAppIsExitShouldReturnTrue() {
         App classUnderTest = new App();
+        classUnderTest.isExit = false;
         assertTrue(classUnderTest.isExit());
     }
 
