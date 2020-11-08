@@ -1,76 +1,67 @@
 package com.farhanfadhilah.goacademycalculator;
 
+import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class CalculatorTest {
+    App classUnderTest;
+
+    @Before
+    public void setup() {
+        classUnderTest = new App();
+    }
+
     @Test
     public void givenCalculatorAppToStringShouldReturnString() {
-        App classUnderTest = new App();
-        double displayedNumber = classUnderTest.displayedNumber;
-        assertEquals(String.valueOf(displayedNumber), classUnderTest.toString());
+        classUnderTest.displayedNumber = 1.0;
+        assertEquals("1.0", classUnderTest.toString());
     }
 
     @Test
     public void givenCalculatorAppCancelShouldResetToZero() {
-        App classUnderTest = new App();
         classUnderTest.displayedNumber = 10.0;
-        assertEquals("0.0", classUnderTest.cancel());
+        classUnderTest.cancel();
+        assertEquals("0.0", classUnderTest.toString());
     }
 
     @Test
     public void givenCalculatorAppAddShouldReturnNumber() {
-        App classUnderTest = new App();
-        double firstNumber = classUnderTest.displayedNumber;
-        int secondNumber = 1;
-        assertEquals(String.valueOf(firstNumber + secondNumber), classUnderTest.add(firstNumber, secondNumber));
+        classUnderTest.displayedNumber = 1.0;
+        classUnderTest.add(2);
+        assertEquals("3.0", classUnderTest.toString());
     }
 
     @Test
     public void givenCalculatorAppSubtractShouldReturnNumber() {
-        App classUnderTest = new App();
-        double firstNumber = classUnderTest.displayedNumber;
-        int secondNumber = 1;
-        assertEquals(String.valueOf(firstNumber - secondNumber), classUnderTest.subtract(firstNumber, secondNumber));
+        classUnderTest.displayedNumber = 1.0;
+        classUnderTest.subtract(1);
+        assertEquals("0.0", classUnderTest.toString());
     }
 
     @Test
     public void givenCalculatorAppMultiplyShouldReturnNumber() {
-        App classUnderTest = new App();
-        double firstNumber = classUnderTest.displayedNumber;
-        int secondNumber = 1;
-        assertEquals(String.valueOf(firstNumber * secondNumber), classUnderTest.multiply(firstNumber, secondNumber));
+        classUnderTest.displayedNumber = 2.0;
+        classUnderTest.multiply(2);
+        assertEquals("4.0", classUnderTest.toString());
     }
 
     @Test
     public void givenCalculatorAppDivideShouldReturnNumber() {
-        App classUnderTest = new App();
-        double firstNumber = classUnderTest.displayedNumber;
-        int secondNumber = 1;
-        assertEquals(String.valueOf(firstNumber / secondNumber), classUnderTest.divide(firstNumber, secondNumber));
+        classUnderTest.divide(2);
+        assertEquals("0.0", classUnderTest.toString());
     }
 
     @Test
     public void givenCalculatorAppDivideByZeroShouldReturnZero() {
-        App classUnderTest = new App();
-        double firstNumber = classUnderTest.displayedNumber;
-        int secondNumber = 0;
-        assertEquals("0.0", classUnderTest.divide(firstNumber, secondNumber));
+        classUnderTest.divide(0);
+        assertEquals("0.0", classUnderTest.toString());
     }
 
     @Test
     public void givenCalculatorAppIsExitShouldReturnTrue() {
-        App classUnderTest = new App();
         classUnderTest.isExit = false;
         assertTrue(classUnderTest.isExit());
-    }
-
-    @Test
-    public void givenCalculatorAppCalculateShouldReturnCommand() {
-        App classUnderTest = new App();
-        String command = "add";
-        int commandNumber = 1;
-        assertEquals("add", classUnderTest.calculate(command, commandNumber));
     }
 
 }

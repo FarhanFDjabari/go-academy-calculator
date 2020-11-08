@@ -39,45 +39,40 @@ public class App {
         return isExit;
     }
 
-    public String cancel() {
+    public void cancel() {
         displayedNumber = 0.0;
-        return toString();
     }
 
-    public String add(double firstNumber, int secondNumber) {
-        displayedNumber = firstNumber + secondNumber;
-        return toString();
+    public void add(int commandNumber) {
+        displayedNumber += commandNumber;
     }
 
-    public String subtract(double firstNumber, int secondNumber) {
-        displayedNumber = firstNumber - secondNumber;
-        return toString();
+    public void subtract(int commandNumber) {
+        displayedNumber -= commandNumber;
     }
 
-    public String multiply(double firstNumber, int secondNumber) {
-        displayedNumber = firstNumber * secondNumber;
-        return toString();
+    public void multiply(int commandNumber) {
+        displayedNumber *= commandNumber;
     }
 
-    public String divide(double firstNumber, int secondNumber) {
-        if (secondNumber == 0) cancel();
-        else displayedNumber = firstNumber / secondNumber;
-        return toString();
+    public void divide(int commandNumber) {
+        if (commandNumber == 0) cancel();
+        else displayedNumber /= commandNumber;
     }
 
-    public String calculate(String commandWord, int commandNumber) {
+    public void calculate(String commandWord, int commandNumber) {
         switch (commandWord) {
             case "add":
-                add(displayedNumber, commandNumber);
+                add(commandNumber);
                 break;
             case "subtract":
-                subtract(displayedNumber, commandNumber);
+                subtract(commandNumber);
                 break;
             case "multiply":
-                multiply(displayedNumber, commandNumber);
+                multiply(commandNumber);
                 break;
             case "divide":
-                divide(displayedNumber, commandNumber);
+                divide(commandNumber);
                 break;
             case "cancel":
                 cancel();
@@ -87,6 +82,5 @@ public class App {
                 break;
             default:
         }
-        return commandWord;
     }
 }
