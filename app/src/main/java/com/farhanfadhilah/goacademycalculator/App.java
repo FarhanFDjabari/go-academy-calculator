@@ -60,7 +60,8 @@ public class App {
     }
 
     public String divide(double firstNumber, int secondNumber) {
-        displayedNumber = firstNumber / secondNumber;
+        if (secondNumber == 0) cancel();
+        else displayedNumber = firstNumber / secondNumber;
         return toString();
     }
 

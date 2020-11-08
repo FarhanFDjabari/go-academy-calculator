@@ -51,6 +51,14 @@ public class CalculatorTest {
     }
 
     @Test
+    public void givenCalculatorAppDivideByZeroShouldReturnZero() {
+        App classUnderTest = new App();
+        double firstNumber = classUnderTest.displayedNumber;
+        int secondNumber = 0;
+        assertEquals("0.0", classUnderTest.divide(firstNumber, secondNumber));
+    }
+
+    @Test
     public void givenCalculatorAppIsExitShouldReturnTrue() {
         App classUnderTest = new App();
         classUnderTest.isExit = false;
